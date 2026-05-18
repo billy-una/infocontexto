@@ -1,0 +1,27 @@
+{
+  "name": "infocontexto",
+  "version": "1.0.0",
+  "description": "InfoContexto - Plataforma interactiva de presentación de contenidos",
+  "main": "index.js",
+  "scripts": {
+    "start": "firebase emulators:start",
+    "serve": "firebase serve",
+    "deploy": "firebase deploy",
+    "build": "echo 'No build step required for static files'",
+    "test": "echo 'No tests configured yet'"
+  },
+  "keywords": [
+    "firebase",
+    "hosting",
+    "presentation",
+    "web"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "firebase-tools": "^13.0.0"
+  },
+  "dependencies": {
+    "firebase": "^10.0.0"
+  }
+}

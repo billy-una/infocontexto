@@ -107,11 +107,12 @@ body {
 
 .page-stage {
   display: grid;
-  grid-template-columns: 245px 1fr;
+  grid-template-columns: 1fr;
   min-height: 0;
 }
 
 .page-rail {
+  display: none;
   padding: 22px 16px;
   border-right: 1px solid var(--gris-borde);
   background: rgba(255, 255, 255, 0.72);
@@ -390,6 +391,7 @@ body {
 .progress-labels span:only-child,
 #slideLabel {
   margin-right: auto;
+  display: none;
 }
 
 .progress {
@@ -424,6 +426,11 @@ body {
 .slide-warning.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+.slide-warning.critical .arrow-icon {
+  background: var(--azul);
+  box-shadow: 0 12px 24px rgba(7, 97, 175, 0.35);
 }
 
 .arrow-icon {

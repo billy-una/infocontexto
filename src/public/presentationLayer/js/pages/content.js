@@ -5,10 +5,10 @@ export const presentationConfig = {
     {
       id: "presentacion",
       title: "Presentación",
-      seconds: 50,
+      seconds: 60,
       slides: [
         {
-          seconds: 25,
+          seconds: 30,
           title: "Sistema de Gestión del Gimnasio",
           subtitle: "Mi Colegio • CCECR",
           components: [
@@ -32,8 +32,8 @@ export const presentationConfig = {
           }
         },
         {
-          seconds: 25,
-          title: "Alcance De La Demo",
+          seconds: 30,
+          title: "Alcance de la demo",
           subtitle: "Recorrido por procesos administrativos y experiencia del colegiado",
           components: [
             {
@@ -56,11 +56,11 @@ export const presentationConfig = {
     {
       id: "problema",
       title: "Problema",
-      seconds: 70,
+      seconds: 60,
       slides: [
         {
-          seconds: 35,
-          title: "Agenda Con Reglas Operativas",
+          seconds: 30,
+          title: "Agenda con reglas operativas",
           subtitle: "El gimnasio necesita controlar cupos, horarios y restricciones sin depender de validaciones manuales.",
           components: [
             {
@@ -79,8 +79,8 @@ export const presentationConfig = {
           }
         },
         {
-          seconds: 35,
-          title: "Familiares, Prioridad Y Hora Pico",
+          seconds: 30,
+          title: "Familiares, prioridad y hora pico",
           subtitle: "Las reglas cambian según beneficiario, edad y tipo de bloque.",
           components: [
             {
@@ -103,97 +103,119 @@ export const presentationConfig = {
     {
       id: "demostracion",
       title: "Demostración",
-      seconds: 170,
+      seconds: 180,
       slides: [
         {
-          seconds: 35,
-          title: "Admin: Entrenadores Y Bloques",
-          subtitle: "Primero se preparan los recursos base de la agenda.",
+          seconds: 30,
+          title: "Admin: Entrenadores y horarios",
+          subtitle: "CRUD entrenadores, bloques, reglas de no solapamiento.",
           components: [
             {
               type: "rules",
               items: [
                 { title: "CRUD entrenadores", text: "Registrar, consultar, editar y eliminar instructores." },
-                { title: "CRUD horarios", text: "Crear bloques con fecha, hora, entrenador, tipo y capacidad." },
+                { title: "CRUD bloques/horarios", text: "Crear bloques con fecha, hora, entrenador, tipo y capacidad." },
+                { title: "Tipos de bloque", text: "Regular, prioritario (65+) y hora pico (capacidad limitada)." },
                 { title: "Validación", text: "No se aceptan horarios solapados para el mismo entrenador." }
               ]
             }
           ],
-          media: { type: "image", src: "assets/visual-horarios.png", caption: "Acción: abrir Entrenadores y Horarios" }
+          media: { type: "video", src: "videos/demo-entrenadores-horarios.mp4", caption: "Video: Gestión de Entrenadores y Horarios", fullscreen: true }
         },
         {
-          seconds: 35,
+          seconds: 30,
           title: "Admin: Citas",
-          subtitle: "La agenda aplica reglas por tipo de cita, bloque y beneficiario.",
+          subtitle: "CRUD citas, tipos, titulares vs familiares, capacidad por bloque.",
           components: [
             {
               type: "rules",
               items: [
-                { title: "Tipos", text: "Cambio de rutina, entrenamiento regular y primera vez." },
-                { tone: "family", title: "Beneficiario", text: "Titular o familiar, con pertenencia validada." },
-                { tone: "peak", title: "Restricción", text: "Hora pico bloquea familiares y la capacidad se respeta." }
+                { title: "Tipos de cita", text: "Cambio de rutina, entrenamiento regular y primera vez." },
+                { tone: "family", title: "Titular vs Familiar", text: "Titular es el colegiado; familiar debe pertenecer al colegiado." },
+                { title: "Capacidad", text: "Cada bloque respeta cupos por tipo de beneficiario." },
+                { tone: "peak", title: "Restricciones", text: "Hora pico no permite familiares; prioritario solo 65+." }
               ]
             }
           ],
-          media: { type: "image", src: "assets/visual-citas.png", caption: "Acción: crear cita y cambiar beneficiario a familiar" }
+          media: { type: "video", src: "videos/demo-citas.mp4", caption: "Video: Creación y Gestión de Citas", fullscreen: true }
         },
         {
-          seconds: 35,
-          title: "Admin: Ejercicios Y Rutinas",
-          subtitle: "El catálogo de ejercicios alimenta rutinas de 8 semanas.",
+          seconds: 30,
+          title: "Reglas de negocio de citas",
+          subtitle: "Prioritario, hora pico, familiares, vigencias y límites.",
           components: [
             {
               type: "rules",
               items: [
-                { title: "Ejercicios", text: "Nombre, grupo muscular, dificultad, máquina y evidencia." },
-                { tone: "priority", title: "Rutina", text: "Objetivo físico, fecha inicial, ejercicios por día y progresión." },
-                { title: "Vigencia", text: "Cada rutina dura 8 semanas y no puede solaparse con otra activa." }
+                { tone: "priority", title: "Prioritario", text: "Solo personas de 65 años o más pueden usar bloques prioritarios." },
+                { tone: "peak", title: "Hora pico", text: "No se permiten citas para familiares; capacidad limitada." },
+                { tone: "family", title: "Familiares", text: "Deben pertenecer al colegiado; horario 08:00-14:30." },
+                { title: "Límite diario", text: "Una cita regular/primera vez por día para el grupo familiar." }
               ]
             }
           ],
-          media: { type: "image", src: "assets/visual-rutinas.png", caption: "Acción: mostrar rutina con ejercicios y fechas" }
+          media: { type: "video", src: "videos/demo-reglas-citas.mp4", caption: "Video: Validación Automática de Reglas", fullscreen: true }
         },
         {
-          seconds: 35,
-          title: "Colegiado: Citas Y Cuestionario",
-          subtitle: "El colegiado opera con una interfaz más simple, pero con las mismas reglas.",
+          seconds: 30,
+          title: "Admin: Ejercicios y rutinas",
+          subtitle: "CRUD ejercicios, crear rutinas, objetivo, vigencia de 8 semanas.",
+          components: [
+            {
+              type: "rules",
+              items: [
+                { title: "CRUD Ejercicios", text: "Nombre, grupo muscular, dificultad, máquina y evidencia." },
+                { title: "Crear Rutina", text: "Objetivo físico, fecha inicial, seleccionar ejercicios por día." },
+                { title: "Vigencia", text: "Cada rutina dura 8 semanas exactas sin solaparse con otra activa del mismo colegiado." },
+                { title: "Progresión", text: "Seguimiento de ejercicios completados, omitidos o pendientes." }
+              ]
+            }
+          ],
+          media: { type: "video", src: "videos/demo-ejercicios-rutinas.mp4", caption: "Video: Gestión de Ejercicios y Rutinas", fullscreen: true }
+        },
+        {
+          seconds: 30,
+          title: "Colegiado: Citas, cuestionario y rutinas",
+          subtitle: "Gestión de citas, cuestionario (6 meses), rutinas asignadas y progreso.",
           components: [
             {
               type: "rules",
               items: [
                 { tone: "family", title: "Mis citas", text: "Crear, consultar, editar o cancelar citas propias." },
-                { title: "Cuestionario", text: "Registra salud, lesiones, medicamentos, sueño, estrés y contacto." },
-                { tone: "priority", title: "Vigencia", text: "El cuestionario dura 6 meses: pendiente, vigente, próximo a vencer o vencido." }
+                { title: "Cuestionario de salud", text: "Registra salud, lesiones, medicamentos, sueño, estrés y contacto." },
+                { title: "Vigencia", text: "Cuestionario válido por 6 meses: pendiente, vigente, próximo a vencer o vencido." },
+                { title: "Mis rutinas", text: "Ver ejercicios asignados, vigencia y marcar progreso por fecha." }
               ]
             }
           ],
-          media: { type: "image", src: "assets/visual-cuestionario.png", caption: "Acción: abrir Mis citas y Cuestionario de salud" }
+          media: { type: "video", src: "videos/demo-colegiado-citas-rutinas.mp4", caption: "Video: Experiencia del Colegiado", fullscreen: true }
         },
         {
           seconds: 30,
-          title: "Colegiado: Rutinas Y Control De Acceso",
-          subtitle: "El cierre conecta planificación, progreso e ingreso físico al gimnasio.",
+          title: "Control de acceso",
+          subtitle: "Validar código, carnet, colegiatura, suspensión, cita del día.",
           components: [
             {
               type: "rules",
               items: [
-                { title: "Mis rutinas", text: "Ver ejercicios asignados y marcar progreso por fecha." },
-                { tone: "peak", title: "Acceso", text: "Recepción valida colegiatura, datos, carnet, suspensión y cita del día." },
-                { title: "Ausencia", text: "Si no valida check-in a tiempo, la cita puede marcarse ausente." }
+                { title: "Validar Código", text: "Sistema escanea o valida código de colegiado." },
+                { title: "Marcar Carnet", text: "Registra presentación del carnet físico." },
+                { tone: "priority", title: "Revisar Estado", text: "Colegiatura, datos, suspensión temporal, y cita agendada del día." },
+                { title: "Check-in", text: "Si no valida a tiempo, la cita puede marcarse ausente automáticamente." }
               ]
             }
           ],
-          media: { type: "image", src: "assets/visual-acceso.png", caption: "Acción: validar código en Control de acceso" }
+          media: { type: "video", src: "videos/demo-control-acceso.mp4", caption: "Video: Control de Acceso al Gimnasio", fullscreen: true }
         }
       ]
     },
     {
       id: "resultados",
       title: "Resultados",
-      seconds: 80,
+      seconds: 60,
       slides: [
         {
-          seconds: 40,
+          seconds: 30,
           title: "Resultados Funcionales",
           subtitle: "El sistema reduce errores manuales y centraliza las reglas críticas.",
           components: [
@@ -213,8 +235,8 @@ export const presentationConfig = {
           media: { type: "image", src: "assets/visual-acceso.png", caption: "Operación controlada y trazable" }
         },
         {
-          seconds: 40,
-          title: "Impacto En La Operación",
+          seconds: 30,
+          title: "Impacto en la operación",
           subtitle: "Admin controla la agenda y el colegiado consulta/gestiona su experiencia.",
           components: [
             {
@@ -233,11 +255,11 @@ export const presentationConfig = {
     {
       id: "retroalimentacion",
       title: "Retroalimentación",
-      seconds: 50,
+      seconds: 60,
       slides: [
         {
-          seconds: 25,
-          title: "Puntos Para Validar",
+          seconds: 30,
+          title: "Puntos para validar",
           subtitle: "Aspectos que conviene revisar con usuarios reales antes del cierre.",
           components: [
             {
@@ -252,7 +274,7 @@ export const presentationConfig = {
           media: { type: "image", src: "assets/visual-cuestionario.png", caption: "Retroalimentación orientada a ajustes finales" }
         },
         {
-          seconds: 25,
+          seconds: 30,
           title: "Cierre",
           subtitle: "El sistema integra agenda, salud, rutinas y acceso bajo reglas de negocio verificables.",
           components: [

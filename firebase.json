@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "src/public",
+    "public": "src/public/presentationLayer",
     "ignore": [
       "firebase.json",
       "**/.*",

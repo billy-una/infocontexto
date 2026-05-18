@@ -65,5 +65,6 @@ export class SlideManager {
     this.label.textContent = `Slide ${this.slideIndex + 1} de ${this.page.slides.length}`;
     this.progress.style.width = `${ratio}%`;
     this.warning.classList.toggle("visible", remaining <= this.warningSeconds);
+    this.warning.classList.toggle("critical", remaining <= 5);
   }
 }

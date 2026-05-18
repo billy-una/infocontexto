@@ -165,6 +165,68 @@ const firebaseConfig = {
 };
 ```
 
+## 🎬 Vídeos de Demostración
+
+La presentación requiere 6 videos de demostración. Actualmente están configurados pero necesitan ser creados:
+
+### Ubicación de los Videos
+```
+src/public/presentationLayer/videos/
+├── demo-entrenadores-horarios.mp4
+├── demo-citas.mp4
+├── demo-reglas-citas.mp4
+├── demo-ejercicios-rutinas.mp4
+├── demo-colegiado-citas-rutinas.mp4
+└── demo-control-acceso.mp4
+```
+
+### Descripción de cada Video
+
+**1. demo-entrenadores-horarios.mp4** (30 segundos)
+- CRUD de entrenadores (crear, editar, eliminar)
+- Creación de bloques/horarios (fecha, hora, entrenador, tipo, capacidad)
+- Validación de no solapamiento
+- Mostrar 3 tipos de bloque: regular, prioritario (65+), hora pico
+
+**2. demo-citas.mp4** (30 segundos)
+- CRUD de citas desde administrador
+- Tipos de cita: cambio de rutina, entrenamiento regular, primera vez
+- Seleccionar titular vs familiar
+- Validación de capacidad por bloque
+
+**3. demo-reglas-citas.mp4** (30 segundos)
+- Intentos fallidos de agendar citas violando reglas:
+  - Prioritario sin ser 65+
+  - Familiar en hora pico
+  - Familiar sin pertenecer al colegiado
+  - Familiar fuera de 08:00-14:30
+  - 2+ citas regulares/primera vez por día para grupo familiar
+- Mostrar citas exitosas que cumplen todas las reglas
+
+**4. demo-ejercicios-rutinas.mp4** (30 segundos)
+- CRUD de ejercicios (nombre, grupo muscular, dificultad, máquina, evidencia)
+- Crear rutina: objetivo físico, fecha inicial, asignar ejercicios por día
+- Mostrar vigencia: 8 semanas exactas
+- Validación de no solapamiento
+- Ejercicios con progreso (completado/omitido/pendiente)
+
+**5. demo-colegiado-citas-rutinas.mp4** (30 segundos)
+- Login como colegiado
+- Mis citas: crear, consultar, editar, cancelar
+- Cuestionario de salud (lesiones, medicamentos, sueño, estrés, contacto)
+- Vigencia del cuestionario: 6 meses
+- Mis rutinas: ejercicios del día/semana
+- Marcar progreso de ejercicios
+
+**6. demo-control-acceso.mp4** (30 segundos)
+- Validar código de colegiado (QR o manual)
+- Mostrar información: nombre, foto
+- Marcar carnet presentado
+- Revisar estado: colegiatura, datos, suspensión, cita del día
+- Caso 1: Acceso permitido
+- Caso 2: Acceso denegado (suspendido)
+- Caso 3: Advertencia (sin cita del día)
+
 ## 🚢 Deploy a Firebase Hosting
 
 ### Opción 1: Deploy Manual (Recomendado)

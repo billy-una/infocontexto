@@ -120,6 +120,13 @@ export const presentationConfig = {
               ]
             }
           ],
+          // VIDEO 1: DEMOSTRACIÓN - ADMIN ENTRENADORES Y HORARIOS
+          // Contenido del video:
+          // - Demostración de CRUD de entrenadores (crear, editar, eliminar)
+          // - Creación de bloques/horarios con fecha, hora, entrenador, tipo (regular/prioritario/pico), capacidad
+          // - Validación de no solapamiento: intentar crear bloque solapado y ver el error
+          // - Mostrar los 3 tipos de bloque y sus características
+          // URL: /src/public/presentationLayer/videos/demo-entrenadores-horarios.mp4
           media: { type: "video", src: "videos/demo-entrenadores-horarios.mp4", caption: "Video: Gestión de Entrenadores y Horarios", fullscreen: true }
         },
         {
@@ -137,6 +144,14 @@ export const presentationConfig = {
               ]
             }
           ],
+          // VIDEO 2: DEMOSTRACIÓN - ADMIN CITAS
+          // Contenido del video:
+          // - CRUD de citas desde administrador (crear, editar, cancelar)
+          // - Mostrar los 3 tipos de cita: cambio de rutina, entrenamiento regular, primera vez
+          // - Seleccionar titular vs familiar
+          // - Validación de capacidad por bloque
+          // - Intentar crear cita que viole restricciones y ver errores
+          // URL: /src/public/presentationLayer/videos/demo-citas.mp4
           media: { type: "video", src: "videos/demo-citas.mp4", caption: "Video: Creación y Gestión de Citas", fullscreen: true }
         },
         {
@@ -154,6 +169,15 @@ export const presentationConfig = {
               ]
             }
           ],
+          // VIDEO 3: DEMOSTRACIÓN - REGLAS DE NEGOCIO DE CITAS
+          // Contenido del video:
+          // - Intentar agendar cita prioritario sin ser 65+ → error
+          // - Intentar agendar familiar en hora pico → error
+          // - Intentar agendar familiar sin pertenecer al colegiado → error
+          // - Intentar agendar familiar fuera de 08:00-14:30 → error
+          // - Intentar agendar 2 citas regulares/primera vez en el mismo día para el grupo → error
+          // - Mostrar citas exitosas que cumplen todas las reglas
+          // URL: /src/public/presentationLayer/videos/demo-reglas-citas.mp4
           media: { type: "video", src: "videos/demo-reglas-citas.mp4", caption: "Video: Validación Automática de Reglas", fullscreen: true }
         },
         {
@@ -171,6 +195,15 @@ export const presentationConfig = {
               ]
             }
           ],
+          // VIDEO 4: DEMOSTRACIÓN - ADMIN EJERCICIOS Y RUTINAS
+          // Contenido del video:
+          // - CRUD de ejercicios (crear, editar, eliminar): nombre, grupo muscular, dificultad, máquina, evidencia
+          // - Crear nueva rutina: seleccionar colegiado, objetivo físico, fecha inicial
+          // - Asignar ejercicios por día (7 días de la semana)
+          // - Mostrar vigencia: 8 semanas exactas desde la fecha inicial
+          // - Intentar crear rutina solapada para el mismo colegiado → error
+          // - Mostrar rutina activa con ejercicios del día
+          // URL: /src/public/presentationLayer/videos/demo-ejercicios-rutinas.mp4
           media: { type: "video", src: "videos/demo-ejercicios-rutinas.mp4", caption: "Video: Gestión de Ejercicios y Rutinas", fullscreen: true }
         },
         {
@@ -188,6 +221,16 @@ export const presentationConfig = {
               ]
             }
           ],
+          // VIDEO 5: DEMOSTRACIÓN - COLEGIADO CITAS, CUESTIONARIO Y RUTINAS
+          // Contenido del video:
+          // - Acceso como colegiado (iniciar sesión)
+          // - Ver "Mis citas": crear nueva cita (respetando las reglas), consultar, editar, cancelar
+          // - Llenar cuestionario de salud (preguntas sobre: lesiones, medicamentos, sueño, estrés, contacto de emergencia)
+          // - Mostrar vigencia del cuestionario: "Válido hasta [fecha]"
+          // - Ver "Mis rutinas": mostrar ejercicios del día, del la semana
+          // - Marcar ejercicios como completados, omitidos, pendientes
+          // - Mostrar progreso general de la rutina (%)
+          // URL: /src/public/presentationLayer/videos/demo-colegiado-citas-rutinas.mp4
           media: { type: "video", src: "videos/demo-colegiado-citas-rutinas.mp4", caption: "Video: Experiencia del Colegiado", fullscreen: true }
         },
         {
@@ -205,6 +248,18 @@ export const presentationConfig = {
               ]
             }
           ],
+          // VIDEO 6: DEMOSTRACIÓN - CONTROL DE ACCESO
+          // Contenido del video:
+          // - Acceso a módulo de Control de Acceso (recepcionista/vigilante)
+          // - Validar código de colegiado: ingresar o escanear QR
+          // - Mostrar información del colegiado: nombre, foto
+          // - Marcar carnet presentado (checkbox)
+          // - Revisar estado: estado de colegiatura, datos personales, suspensión temporal, cita del día
+          // - Caso 1: Colegiado con todo en orden → acceso permitido
+          // - Caso 2: Colegiado suspendido → mostrar mensaje de acceso denegado
+          // - Caso 3: Colegiado sin cita del día → mostrar advertencia
+          // - Mostrar check-in automático y marcación de asistencia
+          // URL: /src/public/presentationLayer/videos/demo-control-acceso.mp4
           media: { type: "video", src: "videos/demo-control-acceso.mp4", caption: "Video: Control de Acceso al Gimnasio", fullscreen: true }
         }
       ]

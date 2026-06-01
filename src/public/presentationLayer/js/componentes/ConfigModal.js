@@ -65,6 +65,7 @@ export class ConfigModal {
       const result = this.validate();
       if (!result.ok) return;
       this.modal.hide();
+      requestPresentationFullscreen();
       this.onStart(result.config);
     });
   }
@@ -126,6 +127,19 @@ export class ConfigModal {
     this.startButton.disabled = false;
     return { ok: true, config: nextConfig };
   }
+}
+
+function requestPresentationFullscreen() {
+  const target = document.documentElement;
+  const requestFullscreen =
+    target.requestFullscreen ||
+    target.webkitRequestFullscreen ||
+    target.msRequestFullscreen;
+
+  if (!requestFullscreen || document.fullscreenElement) return;
+
+  const fullscreenAttempt = requestFullscreen.call(target);
+  if (fullscreenAttempt?.catch) fullscreenAttempt.catch(() => {});
 }
 
 function positiveInteger(value) {

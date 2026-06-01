@@ -11,6 +11,7 @@ export class SlideManager {
     this.page = null;
     this.slideIndex = 0;
     this.elapsed = 0;
+    this.exitTimeout = null;
   }
 
   loadPage(page) {
@@ -22,9 +23,14 @@ export class SlideManager {
 
   goToSlide(index) {
     if (!this.page) return;
-    this.slideIndex = Math.max(0, Math.min(index, this.page.slides.length - 1));
+    const nextIndex = Math.max(0, Math.min(index, this.page.slides.length - 1));
+    if (nextIndex === this.slideIndex) return;
+
     this.elapsed = 0;
-    this.render();
+    this.renderWithExit(() => {
+      this.slideIndex = nextIndex;
+      this.render();
+    });
   }
 
   tick(deltaSeconds) {
@@ -54,7 +60,54 @@ export class SlideManager {
 
   render() {
     this.mount.innerHTML = renderSlide(this.currentSlide(), this.page);
+    this.activateMedia();
     this.updateUi();
+  }
+
+  renderWithExit(afterExit) {
+    clearTimeout(this.exitTimeout);
+
+    const current = this.mount.firstElementChild;
+    if (!current) {
+      afterExit();
+      return;
+    }
+
+    current.classList.add("is-exiting");
+    this.exitTimeout = setTimeout(afterExit, 260);
+  }
+
+  activateMedia() {
+    const video = this.mount.querySelector("[data-autoplay-video]");
+    if (!video) return;
+    const slide = this.currentSlide();
+
+    video.muted = true;
+    video.currentTime = 0;
+
+    const syncPlaybackRate = () => {
+      if (!Number.isFinite(video.duration) || video.duration <= 0 || !slide?.seconds) return;
+      const rate = video.duration / slide.seconds;
+      video.playbackRate = Math.min(16, Math.max(0.25, rate));
+    };
+
+    syncPlaybackRate();
+    video.addEventListener("loadedmetadata", syncPlaybackRate, { once: true });
+
+    const playAttempt = video.play();
+    if (playAttempt?.catch) playAttempt.catch(() => {});
+
+    if (video.dataset.fullscreen !== "true") return;
+
+    const requestFullscreen =
+      video.requestFullscreen ||
+      video.webkitRequestFullscreen ||
+      video.msRequestFullscreen;
+
+    if (!requestFullscreen) return;
+
+    const fullscreenAttempt = requestFullscreen.call(video);
+    if (fullscreenAttempt?.catch) fullscreenAttempt.catch(() => {});
   }
 
   updateUi() {

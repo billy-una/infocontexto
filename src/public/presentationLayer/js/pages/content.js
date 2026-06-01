@@ -60,217 +60,235 @@ export const presentationConfig = {
       slides: [
         {
           seconds: 30,
-          title: "Agenda con reglas operativas",
-          subtitle: "El gimnasio necesita controlar cupos, horarios y restricciones sin depender de validaciones manuales.",
+          title: "El problema",
+          subtitle: "",
           components: [
             {
-              type: "rules",
+              type: "story",
+              variant: "problem",
+              lead: "La gestión del gimnasio se realizaba en papel, lo que generaba múltiples dificultades.",
               items: [
-                { title: "Capacidad", text: "Cada bloque tiene cupos por tipo de cita y no debe sobrepasarse." },
-                { title: "Solapamientos", text: "Un entrenador no puede tener dos bloques cruzados en la misma fecha." },
-                { title: "Estados", text: "Las citas pasan por programada, confirmada, cancelada, atendida o ausente." }
-              ]
+                { icon: "▣", title: "Ineficiencia", text: "Búsqueda manual de rutinas, citas y expedientes en archivos físicos." },
+                { icon: "!", title: "Errores y retrasos", text: "Mayor probabilidad de errores, duplicidad de datos y atención más lenta." },
+                { icon: "◢", title: "Impacto ambiental", text: "Alto consumo de papel y recursos innecesarios." }
+              ],
+              visual: { type: "image", src: "assets/problema.jpeg", alt: "Gestión manual en papel" },
+              note: {
+                icon: "▤",
+                text: "Necesitábamos una forma más ágil, confiable y sostenible de gestionar la información."
+              }
             }
-          ],
-          media: {
-            type: "image",
-            src: "assets/visual-horarios.png",
-            caption: "Problema central: orden operativo con trazabilidad"
-          }
+          ]
         },
         {
           seconds: 30,
-          title: "Familiares, prioridad y hora pico",
-          subtitle: "Las reglas cambian según beneficiario, edad y tipo de bloque.",
+          title: "La solución",
+          subtitle: "",
           components: [
             {
-              type: "rules",
+              type: "story",
+              variant: "solution",
+              lead: "Sistema digital centralizado para la gestión del gimnasio.",
               items: [
-                { tone: "priority", title: "Prioritario", text: "Solo personas de 65 años o más pueden usar bloques prioritarios." },
-                { tone: "peak", title: "Hora pico", text: "No se permiten citas para familiares en bloques de alta demanda." },
-                { tone: "family", title: "Familiares", text: "Deben pertenecer al colegiado y agendan entre 08:00 y 14:30." }
+                { icon: "▤", title: "Rutinas digitales", text: "Acceso inmediato a la información del colegiado." },
+                { icon: "✓", title: "Gestión de citas", text: "Organización eficiente de horarios, bloques y cupos." },
+                { icon: "▥", title: "Calendario institucional", text: "Control centralizado de actividades y reglas operativas." }
+              ],
+              visual: { type: "image", src: "assets/solucion.jpeg", alt: "Sistema digital centralizado" },
+              badges: [
+                { icon: "✓", text: "Menos errores" },
+                { icon: "✓", text: "Procesos más ágiles" },
+                { icon: "✓", text: "Cero papel innecesario" },
+                { icon: "✓", text: "Información confiable" }
               ]
             }
-          ],
-          media: {
-            type: "image",
-            src: "assets/visual-citas.png",
-            caption: "Operación con restricciones automáticas"
-          }
+          ]
         }
       ]
     },
     {
       id: "demostracion",
       title: "Demostración",
-      seconds: 180,
+      seconds: 200,
       slides: [
         {
-          seconds: 30,
-          title: "Admin: Entrenadores y horarios",
-          subtitle: "CRUD entrenadores, bloques, reglas de no solapamiento.",
+          seconds: 10,
+          title: "Admin: Entrenadores",
+          subtitle: "",
           components: [
             {
               type: "rules",
               items: [
-                { title: "CRUD entrenadores", text: "Registrar, consultar, editar y eliminar instructores." },
-                { title: "CRUD bloques/horarios", text: "Crear bloques con fecha, hora, entrenador, tipo y capacidad." },
-                { title: "Tipos de bloque", text: "Regular, prioritario (65+) y hora pico (capacidad limitada)." },
-                { title: "Validación", text: "No se aceptan horarios solapados para el mismo entrenador." }
+                { title: "Accion", text: "Abrir modulo Entrenadores, mostrar lista y crear/editar rapido." },
+                { title: "Guion", text: "Iniciamos en el perfil administrador. Aqui gestionamos entrenadores: registrar, consultar, editar y eliminar." },
+                { title: "Regla", text: "Los entrenadores quedan disponibles para asignarse a los bloques de horario del gimnasio." }
               ]
             }
           ],
-          // VIDEO 1: DEMOSTRACIÓN - ADMIN ENTRENADORES Y HORARIOS
+          // VIDEO 1: DEMOSTRACION - ADMIN ENTRENADORES
           // Contenido del video:
-          // - Demostración de CRUD de entrenadores (crear, editar, eliminar)
-          // - Creación de bloques/horarios con fecha, hora, entrenador, tipo (regular/prioritario/pico), capacidad
-          // - Validación de no solapamiento: intentar crear bloque solapado y ver el error
-          // - Mostrar los 3 tipos de bloque y sus características
-          // URL: /src/public/presentationLayer/videos/demo-entrenadores-horarios.mp4
-          media: { type: "video", src: "videos/demo-entrenadores-horarios.mp4", caption: "Video: Gestión de Entrenadores y Horarios", fullscreen: true }
+          // - Abrir modulo Entrenadores
+          // - Mostrar listado
+          // - Crear o editar entrenador rapidamente
+          // URL: /src/public/presentationLayer/videos/demo-entrenadores.mp4
+          media: { type: "video", src: "https://firebasestorage.googleapis.com/v0/b/infocontexto2025-19.firebasestorage.app/o/presentation%2Fvideos%2Fclips%2F5-admin-entrenadores.mp4?alt=media&token=35954f8f-ee85-439f-b1cd-a5fdf9e0cdf9", caption: "Video: Entrenadores", fullscreen: true }
         },
         {
-          seconds: 30,
+          seconds: 41,
+          title: "Admin: Horarios / Bloques",
+          subtitle: "",
+          components: [
+            {
+              type: "rules",
+              items: [
+                { title: "Accion", text: "Entrar a Horarios/Bloques y mostrar fecha, hora, entrenador, tipo y capacidad." },
+                { title: "Bloques", text: "Cada bloque define un rango de tiempo, entrenador asignado y cupos disponibles por tipo de cita." },
+                { title: "Tipos", text: "Regular, prioritario para adultos mayores 65+ y hora pico para alta demanda." },
+                { title: "Regla", text: "El sistema evita bloques solapados para el mismo entrenador." }
+              ]
+            }
+          ],
+          // VIDEO 2: DEMOSTRACION - ADMIN HORARIOS / BLOQUES
+          // Contenido del video:
+          // - Entrar a Horarios/Bloques
+          // - Mostrar o crear bloque con fecha, hora inicio, hora fin, entrenador, tipo y capacidad
+          // - Explicar regular, prioritario y hora pico
+          // URL: /src/public/presentationLayer/videos/demo-bloques.mp4
+          media: { type: "video", src: "https://firebasestorage.googleapis.com/v0/b/infocontexto2025-19.firebasestorage.app/o/presentation%2Fvideos%2Fclips%2F5-admin-bloques-horarios.mp4?alt=media&token=acc766b6-080f-48a6-9dd7-096cac84ecde", caption: "Video: Bloques", fullscreen: true }
+        },
+        {
+          seconds: 34,
           title: "Admin: Citas",
-          subtitle: "CRUD citas, tipos, titulares vs familiares, capacidad por bloque.",
+          subtitle: "",
+          components: [],
+          // VIDEO 3: DEMOSTRACION - ADMIN CITAS
+          // Contenido del video:
+          // - Crear o editar cita
+          // - Seleccionar colegiado, beneficiario, tipo y bloque
+          // - Mostrar validacion de capacidad y restricciones
+          // URL: /src/public/presentationLayer/videos/demo-citas-admin.mp4
+          media: { type: "video", src: "https://firebasestorage.googleapis.com/v0/b/infocontexto2025-19.firebasestorage.app/o/presentation%2Fvideos%2Fclips%2F5-admin-citas-admin.mp4?alt=media&token=64d239b3-5878-4473-84cd-277c4a3a1316", caption: "Video: Citas Admin", fullscreen: true }
+        },
+        {
+          seconds: 22,
+          title: "Admin: Ejercicios",
+          subtitle: "",
           components: [
             {
               type: "rules",
               items: [
-                { title: "Tipos de cita", text: "Cambio de rutina, entrenamiento regular y primera vez." },
-                { tone: "family", title: "Titular vs Familiar", text: "Titular es el colegiado; familiar debe pertenecer al colegiado." },
-                { title: "Capacidad", text: "Cada bloque respeta cupos por tipo de beneficiario." },
-                { tone: "peak", title: "Restricciones", text: "Hora pico no permite familiares; prioritario solo 65+." }
+                { title: "Accion", text: "Entrar a Ejercicios y mostrar los campos principales." },
+                { title: "Datos", text: "Nombre, grupo muscular, dificultad, maquina y evidencia." },
+                { title: "Uso", text: "El catalogo se reutiliza cuando el administrador arma rutinas por dia." }
               ]
             }
           ],
-          // VIDEO 2: DEMOSTRACIÓN - ADMIN CITAS
+          // VIDEO 4: DEMOSTRACION - ADMIN EJERCICIOS
           // Contenido del video:
-          // - CRUD de citas desde administrador (crear, editar, cancelar)
-          // - Mostrar los 3 tipos de cita: cambio de rutina, entrenamiento regular, primera vez
-          // - Seleccionar titular vs familiar
-          // - Validación de capacidad por bloque
-          // - Intentar crear cita que viole restricciones y ver errores
-          // URL: /src/public/presentationLayer/videos/demo-citas.mp4
-          media: { type: "video", src: "videos/demo-citas.mp4", caption: "Video: Creación y Gestión de Citas", fullscreen: true }
+          // - Abrir modulo Ejercicios
+          // - Mostrar listado y campos principales
+          // - Crear o editar rapidamente
+          // URL: /src/public/presentationLayer/videos/demo-ejercicios.mp4
+          media: { type: "video", src: "https://firebasestorage.googleapis.com/v0/b/infocontexto2025-19.firebasestorage.app/o/presentation%2Fvideos%2Fclips%2F2-admin-ejercicios.mp4?alt=media&token=479a2a9b-0596-4913-bc46-3adafcef2c99", caption: "Video: Ejercicios", fullscreen: true }
         },
         {
-          seconds: 30,
-          title: "Reglas de negocio de citas",
-          subtitle: "Prioritario, hora pico, familiares, vigencias y límites.",
+          seconds: 22,
+          title: "Admin: Rutinas",
+          subtitle: "",
           components: [
             {
               type: "rules",
               items: [
-                { tone: "priority", title: "Prioritario", text: "Solo personas de 65 años o más pueden usar bloques prioritarios." },
-                { tone: "peak", title: "Hora pico", text: "No se permiten citas para familiares; capacidad limitada." },
-                { tone: "family", title: "Familiares", text: "Deben pertenecer al colegiado; horario 08:00-14:30." },
-                { title: "Límite diario", text: "Una cita regular/primera vez por día para el grupo familiar." }
+                { title: "Accion", text: "Entrar a Rutinas, buscar colegiado, mostrar objetivo, inicio y ejercicios por dia." },
+                { title: "Vigencia", text: "Cada rutina dura 8 semanas." },
+                { title: "Regla", text: "No puede solaparse con otra rutina activa del mismo colegiado." },
+                { title: "Seguimiento", text: "El progreso queda por ejercicio: pendiente, completado u omitido." }
               ]
             }
           ],
-          // VIDEO 3: DEMOSTRACIÓN - REGLAS DE NEGOCIO DE CITAS
+          // VIDEO 5: DEMOSTRACION - ADMIN RUTINAS
           // Contenido del video:
-          // - Intentar agendar cita prioritario sin ser 65+ → error
-          // - Intentar agendar familiar en hora pico → error
-          // - Intentar agendar familiar sin pertenecer al colegiado → error
-          // - Intentar agendar familiar fuera de 08:00-14:30 → error
-          // - Intentar agendar 2 citas regulares/primera vez en el mismo día para el grupo → error
-          // - Mostrar citas exitosas que cumplen todas las reglas
-          // URL: /src/public/presentationLayer/videos/demo-reglas-citas.mp4
-          media: { type: "video", src: "videos/demo-reglas-citas.mp4", caption: "Video: Validación Automática de Reglas", fullscreen: true }
+          // - Buscar colegiado
+          // - Mostrar objetivo fisico, fecha de inicio y ejercicios por dia
+          // - Explicar vigencia de 8 semanas y no solapamiento
+          // URL: /src/public/presentationLayer/videos/demo-rutinas-admin.mp4
+          media: { type: "video", src: "https://firebasestorage.googleapis.com/v0/b/infocontexto2025-19.firebasestorage.app/o/presentation%2Fvideos%2Fclips%2F2-admin-crear-rutina.mp4?alt=media&token=a4d0fc3f-0fc9-4a13-b6b4-e62d99a2db1c", caption: "Video: Rutinas", fullscreen: true }
         },
         {
-          seconds: 30,
-          title: "Admin: Ejercicios y rutinas",
-          subtitle: "CRUD ejercicios, crear rutinas, objetivo, vigencia de 8 semanas.",
+          seconds: 33,
+          title: "Colegiado: Mis citas",
+          subtitle: "",
           components: [
             {
               type: "rules",
               items: [
-                { title: "CRUD Ejercicios", text: "Nombre, grupo muscular, dificultad, máquina y evidencia." },
-                { title: "Crear Rutina", text: "Objetivo físico, fecha inicial, seleccionar ejercicios por día." },
-                { title: "Vigencia", text: "Cada rutina dura 8 semanas exactas sin solaparse con otra activa del mismo colegiado." },
-                { title: "Progresión", text: "Seguimiento de ejercicios completados, omitidos o pendientes." }
+                { title: "Accion", text: "Cambiar a perfil colegiado y entrar a Mis citas." },
+                { title: "Operacion", text: "El usuario crea, edita o cancela sus citas." },
+                { title: "Reglas", text: "Se mantienen capacidad, prioridad, hora pico y restricciones de familiares." }
               ]
             }
           ],
-          // VIDEO 4: DEMOSTRACIÓN - ADMIN EJERCICIOS Y RUTINAS
+          // VIDEO 6: DEMOSTRACION - COLEGIADO MIS CITAS
           // Contenido del video:
-          // - CRUD de ejercicios (crear, editar, eliminar): nombre, grupo muscular, dificultad, máquina, evidencia
-          // - Crear nueva rutina: seleccionar colegiado, objetivo físico, fecha inicial
-          // - Asignar ejercicios por día (7 días de la semana)
-          // - Mostrar vigencia: 8 semanas exactas desde la fecha inicial
-          // - Intentar crear rutina solapada para el mismo colegiado → error
-          // - Mostrar rutina activa con ejercicios del día
-          // URL: /src/public/presentationLayer/videos/demo-ejercicios-rutinas.mp4
-          media: { type: "video", src: "videos/demo-ejercicios-rutinas.mp4", caption: "Video: Gestión de Ejercicios y Rutinas", fullscreen: true }
+          // - Cambiar a perfil colegiado
+          // - Entrar a Mis citas
+          // - Crear, editar o cancelar cita
+          // URL: /src/public/presentationLayer/videos/demo-citas-colegiado.mp4
+          media: { type: "video", src: "https://firebasestorage.googleapis.com/v0/b/infocontexto2025-19.firebasestorage.app/o/presentation%2Fvideos%2Fclips%2F1-colegiado-citas.mp4?alt=media&token=8a12f68c-48a2-4d46-af24-a087e5956721", caption: "Video: Citas del Colegiado", fullscreen: true }
         },
         {
-          seconds: 30,
-          title: "Colegiado: Citas, cuestionario y rutinas",
-          subtitle: "Gestión de citas, cuestionario (6 meses), rutinas asignadas y progreso.",
+          seconds: 23,
+          title: "Colegiado: Mis rutinas",
+          subtitle: "",
           components: [
             {
               type: "rules",
               items: [
-                { tone: "family", title: "Mis citas", text: "Crear, consultar, editar o cancelar citas propias." },
-                { title: "Cuestionario de salud", text: "Registra salud, lesiones, medicamentos, sueño, estrés y contacto." },
-                { title: "Vigencia", text: "Cuestionario válido por 6 meses: pendiente, vigente, próximo a vencer o vencido." },
-                { title: "Mis rutinas", text: "Ver ejercicios asignados, vigencia y marcar progreso por fecha." }
+                { title: "Accion", text: "Entrar a Mis rutinas, ver ejercicios y marcar progreso." },
+                { title: "Consulta", text: "El colegiado revisa ejercicios por dia y semana." },
+                { title: "Progreso", text: "Cada ejercicio puede quedar pendiente, completado u omitido." }
               ]
             }
           ],
-          // VIDEO 5: DEMOSTRACIÓN - COLEGIADO CITAS, CUESTIONARIO Y RUTINAS
+          // VIDEO 7: DEMOSTRACION - COLEGIADO MIS RUTINAS
           // Contenido del video:
-          // - Acceso como colegiado (iniciar sesión)
-          // - Ver "Mis citas": crear nueva cita (respetando las reglas), consultar, editar, cancelar
-          // - Llenar cuestionario de salud (preguntas sobre: lesiones, medicamentos, sueño, estrés, contacto de emergencia)
-          // - Mostrar vigencia del cuestionario: "Válido hasta [fecha]"
-          // - Ver "Mis rutinas": mostrar ejercicios del día, del la semana
-          // - Marcar ejercicios como completados, omitidos, pendientes
-          // - Mostrar progreso general de la rutina (%)
-          // URL: /src/public/presentationLayer/videos/demo-colegiado-citas-rutinas.mp4
-          media: { type: "video", src: "videos/demo-colegiado-citas-rutinas.mp4", caption: "Video: Experiencia del Colegiado", fullscreen: true }
+          // - Entrar a Mis rutinas
+          // - Ver ejercicios asignados
+          // - Marcar progreso
+          // URL: /src/public/presentationLayer/videos/demo-mis-rutinas.mp4
+          media: { type: "video", src: "https://firebasestorage.googleapis.com/v0/b/infocontexto2025-19.firebasestorage.app/o/presentation%2Fvideos%2Fclips%2F1-colegiado-rutinas.mp4?alt=media&token=e91b31af-2fea-44c6-9226-2ce7c2e75f60", caption: "Video: Rutinas del Colegiado", fullscreen: true }
         },
         {
-          seconds: 30,
+          seconds: 15,
           title: "Control de acceso",
-          subtitle: "Validar código, carnet, colegiatura, suspensión, cita del día.",
+          subtitle: "",
           components: [
             {
               type: "rules",
               items: [
-                { title: "Validar Código", text: "Sistema escanea o valida código de colegiado." },
-                { title: "Marcar Carnet", text: "Registra presentación del carnet físico." },
-                { tone: "priority", title: "Revisar Estado", text: "Colegiatura, datos, suspensión temporal, y cita agendada del día." },
-                { title: "Check-in", text: "Si no valida a tiempo, la cita puede marcarse ausente automáticamente." }
+                { title: "Accion", text: "Volver a Control de acceso, validar codigo y marcar carnet." },
+                { title: "Validaciones", text: "Colegiatura, datos actualizados, carnet, suspension activa y cita del dia." },
+                { title: "Cierre", text: "La recepcion confirma si el ingreso se permite y registra la operacion." }
               ]
             }
           ],
-          // VIDEO 6: DEMOSTRACIÓN - CONTROL DE ACCESO
+          // VIDEO 8: DEMOSTRACION - CONTROL DE ACCESO
           // Contenido del video:
-          // - Acceso a módulo de Control de Acceso (recepcionista/vigilante)
-          // - Validar código de colegiado: ingresar o escanear QR
-          // - Mostrar información del colegiado: nombre, foto
-          // - Marcar carnet presentado (checkbox)
-          // - Revisar estado: estado de colegiatura, datos personales, suspensión temporal, cita del día
-          // - Caso 1: Colegiado con todo en orden → acceso permitido
-          // - Caso 2: Colegiado suspendido → mostrar mensaje de acceso denegado
-          // - Caso 3: Colegiado sin cita del día → mostrar advertencia
-          // - Mostrar check-in automático y marcación de asistencia
+          // - Validar codigo o carnet del colegiado
+          // - Revisar colegiatura, datos, suspension y cita del dia
+          // - Permitir o denegar ingreso
           // URL: /src/public/presentationLayer/videos/demo-control-acceso.mp4
-          media: { type: "video", src: "videos/demo-control-acceso.mp4", caption: "Video: Control de Acceso al Gimnasio", fullscreen: true }
+          media: { type: "video", src: "https://firebasestorage.googleapis.com/v0/b/infocontexto2025-19.firebasestorage.app/o/presentation%2Fvideos%2Fclips%2F5-control-acceso.mp4?alt=media&token=630563d8-95b3-4903-be9f-8409bb990d02", caption: "Video: Control de Acceso", fullscreen: true }
         }
       ]
     },
     {
       id: "resultados",
       title: "Resultados",
-      seconds: 60,
+      seconds: 55,
       slides: [
         {
-          seconds: 30,
+          seconds: 25,
           title: "Resultados Funcionales",
           subtitle: "El sistema reduce errores manuales y centraliza las reglas críticas.",
           components: [
@@ -310,7 +328,7 @@ export const presentationConfig = {
     {
       id: "retroalimentacion",
       title: "Retroalimentación",
-      seconds: 60,
+      seconds: 45,
       slides: [
         {
           seconds: 30,
@@ -329,7 +347,7 @@ export const presentationConfig = {
           media: { type: "image", src: "assets/visual-cuestionario.png", caption: "Retroalimentación orientada a ajustes finales" }
         },
         {
-          seconds: 30,
+          seconds: 15,
           title: "Cierre",
           subtitle: "El sistema integra agenda, salud, rutinas y acceso bajo reglas de negocio verificables.",
           components: [
